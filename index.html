@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random Quote Generator for Ray Dalio's Principles</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="principles.js"></script>
+    <style>
+      .selector-for-some-widget {
+        box-sizing: content-box;
+      }
+      
+      /* Remove Outline From Clicked Button */
+      .btn.active.focus,
+      .btn.active:focus,
+      .btn.focus,
+      .btn.focus:active,
+      .btn:active:focus,
+      .btn:focus {
+        outline: 0 !important;
+        outline-offset: 0  !important;
+        background-image: none  !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none  !important;
+      }
+      
+      /* Ensure mobile responsive typography */
+      button {
+        font-family: SourceSerif, serif;
+        color: #762431;
+        font-size: 1.5rem;
+        width: 100%;
+      }
+      
+      p {
+        font-family: SourceSerif, serif;
+        color: #762431;
+        font-size: 1.3rem;
+      }
+
+      @include media-breakpoint-up(sm) {
+        html {
+          font-size: 1.2rem;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        html {
+          font-size: 1.4rem;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        html {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+    <script>
+      function producePrinciple(quotes) {
+        var view = document.getElementById('randomQuote');
+        view.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+      }
+    
+      function init() {
+        producePrinciple(raysPrinciples);
+      }
+      
+      window.onload = init;
+    </script>
+  </head>
+
+  <div class="container" id="forest">
+    <div class="row align-items-center">
+      <div class="col align-self-center">
+        <center>
+          <button class="btn btn-lg" onclick="producePrinciple(raysPrinciples)">
+            <h1>Random Principle</h1>
+            <h5>From Ray Dalio</h5>
+            <p>-Click to Generate New Quote-</p>
+          </button>
+        </center>
+        <p id="randomQuote"></p>
+      </div>
+    </div>
+  </div>
+</html>
